@@ -2,11 +2,10 @@ import { initViewer, loadModel } from './viewer.js';
 
 initViewer(document.getElementById('preview')).then(viewer => {
     const urn = window.location.hash?.substring(1);
-    setupModelSelection(viewer, urn);
-    setupModelUpload(viewer);
+    onModelSelected(viewer, urn)
 });
 
-async function setupModelSelection(viewer, selectedUrn) {
+/* async function setupModelSelection(viewer, selectedUrn) {
     const dropdown = document.getElementById('models');
     dropdown.innerHTML = '';
     try {
@@ -24,9 +23,9 @@ async function setupModelSelection(viewer, selectedUrn) {
         alert('Could not list models. See the console for more details.');
         console.error(err);
     }
-}
+} */
 
-async function setupModelUpload(viewer) {
+/* async function setupModelUpload(viewer) {
     const upload = document.getElementById('upload');
     const input = document.getElementById('input');
     const models = document.getElementById('models');
@@ -59,7 +58,7 @@ async function setupModelUpload(viewer) {
             input.value = '';
         }
     };
-}
+} */
 
 async function onModelSelected(viewer, urn) {
     if (window.onModelSelectedTimeout) {
